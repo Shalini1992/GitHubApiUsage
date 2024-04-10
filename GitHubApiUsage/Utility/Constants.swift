@@ -7,6 +7,6 @@
 
 import Foundation
 
-let GitHubAccessToken = "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"
+let GitHubAccessToken = "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"
 
 let issuesPerPageCount  = 15
