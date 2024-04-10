@@ -24,7 +24,7 @@ class GitHubApiViewModel: NSObject, ObservableObject{
        do {
            let url = "https://api.github.com/repos/alamofire/alamofire/issues?per_page=\(10)&page=\(page)&state=\(state.rawValue)"
            print(url)
-           let request = try URLRequest(url: url, method: .get, headers: ["Authorization": "token \(GitHubAccessToken)","Accept":"application/vnd.github.full+json"])
+           let request = try URLRequest(url: url, method: .get, headers: ["Accept":"application/vnd.github.full+json"])
            let (data, r) = try await URLSession.shared.data(for: request)
            guard let response = r as? HTTPURLResponse, response.statusCode == 200  else {
                throw Errors.issues
