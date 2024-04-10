@@ -17,16 +17,25 @@ class GitHubApiViewController: UIViewController {
     var gitHubApiViewModel:GitHubApiViewModel!
     var issues = [GitHubIssuesModel]()
     var cancellable = Set<AnyCancellable>()
+    
+    private let gitHubIssuesManager:GitHubIssuesManager = GitHubIssuesManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        
-        configureObservable()
-        getIssues()
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection Available!")
+            configureObservable()
+            getIssues()
 
+        }else{
+            print("Internet Connection not Available!")
+            fetchissueFromLocalDB()
+
+        }
+        
     }
     
     func getIssues(){
@@ -46,19 +55,58 @@ class GitHubApiViewController: UIViewController {
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 self.issues = issues
-
+                
+                self.removeFromLocalDB()
+                self.saveToLocalDB()
                 
                 self.tableView.reloadData()
                
             }
         }.store(in: &cancellable)
     }
+    
+    
+    func removeFromLocalDB() {
+        
+        let githubissuesFromDB = gitHubIssuesManager.fetchGitHubIssues()
+
+        githubissuesFromDB?.forEach({ gitHubModel in
+           let deleteStatus = gitHubIssuesManager.deleteGitHubIssue(githubIssue: gitHubModel)
+            
+            debugPrint("deleteStatus is \(deleteStatus)")
+        })
+        
+    }
+    
+    func saveToLocalDB() {
+        
+        for githubissue in self.issues {
+            gitHubIssuesManager.createGithubIssue(githubIssue: githubissue)
+        }
+        
+    }
+    
+    func fetchissueFromLocalDB() {
+        
+//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        debugPrint(path[0])
+        
+        let filteredArray = gitHubIssuesManager.fetchGitHubIssues() ?? []
+        self.issues =  filteredArray.filter({($0.state?.localizedCaseInsensitiveContains(state.rawValue))!})
+
+        debugPrint("githubissuesFromDB \(self.issues )")
+        self.tableView.reloadData()
+
+        
+    }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard scrollView == tableView,
             (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height
             else { return }
-        getIssues()
+        if Reachability.isConnectedToNetwork(){
+            getIssues()
+        }
     }
 
 }
