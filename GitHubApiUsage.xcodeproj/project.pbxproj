@@ -16,6 +16,8 @@
 		6F4C5EB22BC69E7500427670 /* GithubIssuesDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C5EB12BC69E7500427670 /* GithubIssuesDataRepository.swift */; };
 		6F4C5EB52BC6AA2400427670 /* GitHubIssuesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C5EB42BC6AA2400427670 /* GitHubIssuesManager.swift */; };
 		6F4C5EB72BC6B66600427670 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C5EB62BC6B66600427670 /* Reachability.swift */; };
+		6F4C5EB92BC6C37300427670 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C5EB82BC6C37300427670 /* NetworkManager.swift */; };
+		6F4C5EBB2BC6C7D500427670 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C5EBA2BC6C7D500427670 /* ServiceHandler.swift */; };
 		6FE11B1F2BC5883700E23C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE11B1E2BC5883700E23C6D /* AppDelegate.swift */; };
 		6FE11B212BC5883700E23C6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE11B202BC5883700E23C6D /* SceneDelegate.swift */; };
 		6FE11B232BC5883700E23C6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE11B222BC5883700E23C6D /* ViewController.swift */; };
@@ -48,6 +50,8 @@
 		6F4C5EB12BC69E7500427670 /* GithubIssuesDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubIssuesDataRepository.swift; sourceTree = "<group>"; };
 		6F4C5EB42BC6AA2400427670 /* GitHubIssuesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubIssuesManager.swift; sourceTree = "<group>"; };
 		6F4C5EB62BC6B66600427670 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		6F4C5EB82BC6C37300427670 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6F4C5EBA2BC6C7D500427670 /* ServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
 		6FE11B1B2BC5883700E23C6D /* GitHubApiUsage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubApiUsage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE11B1E2BC5883700E23C6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FE11B202BC5883700E23C6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				6F4C5EB42BC6AA2400427670 /* GitHubIssuesManager.swift */,
+				6F4C5EB82BC6C37300427670 /* NetworkManager.swift */,
+				6F4C5EBA2BC6C7D500427670 /* ServiceHandler.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F4C5EBB2BC6C7D500427670 /* ServiceHandler.swift in Sources */,
 				6FE11B442BC589F600E23C6D /* GitHubApiViewModel.swift in Sources */,
 				6FE11B232BC5883700E23C6D /* ViewController.swift in Sources */,
 				6FE11B1F2BC5883700E23C6D /* AppDelegate.swift in Sources */,
@@ -305,6 +312,7 @@
 				6FE11B212BC5883700E23C6D /* SceneDelegate.swift in Sources */,
 				6F4C5EAD2BC69E2B00427670 /* CDUser+CoreDataProperties.swift in Sources */,
 				6F4C5E962BC68E2A00427670 /* PersistanceStorage.swift in Sources */,
+				6F4C5EB92BC6C37300427670 /* NetworkManager.swift in Sources */,
 				6F4C5EAE2BC69E2B00427670 /* CDGitHubIssues+CoreDataClass.swift in Sources */,
 				6F4C5EB22BC69E7500427670 /* GithubIssuesDataRepository.swift in Sources */,
 				6FE11B4A2BC58A4F00E23C6D /* ViewPagerTabView.swift in Sources */,

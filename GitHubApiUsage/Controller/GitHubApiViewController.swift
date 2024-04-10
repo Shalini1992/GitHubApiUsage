@@ -41,7 +41,7 @@ class GitHubApiViewController: UIViewController {
     func getIssues(){
         Task.init {
             do{
-                try await  gitHubApiViewModel.getIssues()
+                try await  gitHubApiViewModel.getIssuesUsingNetworkManagerClass()
             }catch(let error){
                 print(error)
             }
