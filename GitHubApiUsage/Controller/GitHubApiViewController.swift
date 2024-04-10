@@ -94,10 +94,27 @@ class GitHubApiViewController: UIViewController {
         let filteredArray = gitHubIssuesManager.fetchGitHubIssues() ?? []
         self.issues =  filteredArray.filter({($0.state?.localizedCaseInsensitiveContains(state.rawValue))!})
 
+        if(self.issues.count == 0){
+            displayAlert()
+        }
         debugPrint("githubissuesFromDB \(self.issues )")
         self.tableView.reloadData()
 
         
+    }
+    
+    func displayAlert() {
+        
+        let message = "No offline " + state.rawValue + " issues"
+        let alert = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+                  
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+                    //Cancel Action
+                }))
+             
+                DispatchQueue.main.async {
+                    self.present(alert, animated: false, completion: nil)
+                }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
